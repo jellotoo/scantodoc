@@ -81,6 +81,13 @@ def split_by_direction(text: str, base: str = "ltr") -> list[tuple[str, str]]:
             fill = base_cls
         for k in range(i, j):
             resolved[k] = fill
+        if before == "L" and fill != "L":
+            # Numbers right after Latin text belong to it ("Chapter 12" stays in
+            # that order inside a Hebrew paragraph), as in the Unicode bidi rules.
+            last_digit = max((k for k in range(i, j) if text[k].isdigit()), default=-1)
+            if last_digit >= 0:
+                for k in range(i, last_digit + 1):
+                    resolved[k] = "L"
         i = j
     out: list[tuple[str, str]] = []
     start = 0

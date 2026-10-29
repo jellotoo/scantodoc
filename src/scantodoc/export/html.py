@@ -50,22 +50,31 @@ def element_css(cls: str, st: RStyle, rdoc: RenderDoc, scope: str = "") -> str:
     return out
 
 
-def stylesheet(rdoc: RenderDoc, font_mode: str = "embed", url_prefix: str = "/fonts/", scope: str = "") -> str:
+def font_faces(rdoc: RenderDoc, font_mode: str = "embed", url_prefix: str = "/fonts/") -> str:
+    """@font-face rules for the bundled fonts this document actually needs."""
     has_rtl = any(r.rtl for b in rdoc.blocks for r in b.runs) or any(
         r.rtl for b in rdoc.blocks for row in b.rows for c in row for r in c.runs
     )
     stacks = []
-    for st in rdoc.element_styles.values():
+    for st in list(rdoc.element_styles.values()) + [rdoc.base]:
         stacks.append(st.stack(False))
         if has_rtl:
             stacks.append(st.stack(True))
-    stacks.append(rdoc.base.stack(False))
-    if has_rtl:
-        stacks.append(rdoc.base.stack(True))
-    rashi = next((b.style for b in rdoc.blocks if b.style.category == "rashi"), None)
+    rashi = _rashi_style(rdoc)
     if rashi is not None:
         stacks.append(rashi.stack(True))
-    faces = F.font_face_css(F.bundled_families_in(stacks), font_mode, url_prefix)
+    return F.font_face_css(F.bundled_families_in(stacks), font_mode, url_prefix)
+
+
+def _rashi_style(rdoc: RenderDoc) -> Optional[RStyle]:
+    return next((b.style for b in rdoc.blocks if b.style.category == "rashi"), None)
+
+
+def stylesheet(
+    rdoc: RenderDoc, font_mode: str = "embed", url_prefix: str = "/fonts/", scope: str = "", with_faces: bool = True
+) -> str:
+    rashi = _rashi_style(rdoc)
+    faces = font_faces(rdoc, font_mode, url_prefix) if with_faces else ""
     css = [faces]
     base = rdoc.base
     css.append(
@@ -278,7 +287,7 @@ def render_html(rdoc: RenderDoc, font_mode: str = "embed", embed_images: bool = 
 
 def preview_html(rdoc: RenderDoc, img_url=None) -> dict:
     """Pieces for the web app's live preview: CSS (scoped) and HTML per page."""
-    css = stylesheet(rdoc, font_mode="url", url_prefix="/fonts/", scope="")
+    css = stylesheet(rdoc, scope="", with_faces=False)
     pages: dict[int, list[str]] = {}
     for b in rdoc.blocks:
         pages.setdefault(b.page, []).append(block_html(b, embed_images=False, preview=True, img_url=img_url))
@@ -288,11 +297,13 @@ def preview_html(rdoc: RenderDoc, img_url=None) -> dict:
     if rdoc.toc and rdoc.headings():
         front.append(toc_html(rdoc))
     return {
+        "fonts": font_faces(rdoc, "url", "/fonts/"),
         "css": css,
         "front": "\n".join(front),
         "pages": {str(k): "\n".join(v) for k, v in pages.items()},
         "direction": rdoc.direction,
         "page_w": rdoc.page_w,
+        "page_h": rdoc.page_h,
         "margins": rdoc.margins,
         "background": rdoc.background or "#FFFFFF",
         "columns": rdoc.columns,

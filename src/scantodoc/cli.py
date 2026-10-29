@@ -590,7 +590,8 @@ def serve(host, port, no_browser):
     click.secho(f"ScanToDoc is running at {url}  (press Ctrl+C to stop)", fg="green", bold=True)
     if not no_browser:
         threading.Timer(1.2, lambda: _open_browser(url)).start()
-    uvicorn.run(create_app(), host=host, port=port, log_level="warning")
+    local = host in ("127.0.0.1", "localhost", "::1")
+    uvicorn.run(create_app(local_only=local), host=host, port=port, log_level="warning")
 
 
 def _open_browser(url: str) -> None:
