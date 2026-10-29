@@ -39,8 +39,10 @@ ScanToDoc comes in three forms, all sharing the same engine:
 You need **Python 3.10 or newer**. Python is a free program that ScanToDoc runs on. If you do
 not have it, the start file opens the download page for you.
 
-1. **Download ScanToDoc.** On the project's GitHub page, click the green **Code** button,
-   then **Download ZIP**. Unzip the file (double-click it) and open the `scantodoc` folder.
+1. **Download ScanToDoc.** On [ScanToDoc's GitHub page](https://github.com/jellotoo/scantodoc),
+   click the green **Code** button, then **Download ZIP**. Unzip the file (double-click it)
+   and open the folder inside. You can move that folder anywhere you like, even after the
+   first start.
 2. **Start it.**
    - **Windows:** double-click **`start-windows.bat`**. If Windows shows "Windows protected
      your PC", click **More info**, then **Run anyway**.

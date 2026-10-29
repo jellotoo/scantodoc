@@ -16,7 +16,7 @@ import sys
 from pathlib import Path
 
 SKILL = Path(__file__).resolve().parent.parent
-REPO_GIT = "git+https://github.com/jellotoo/gangfrong.git#subdirectory=scantodoc"
+REPO_GIT = "git+https://github.com/jellotoo/scantodoc.git"
 
 
 def home() -> Path:

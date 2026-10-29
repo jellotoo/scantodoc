@@ -6,7 +6,7 @@ Chromium, roughened a little to look like a scan, and saved as an image-only
 PDF. The answer key is saved next to it as JSON in the same shape the Claude
 reader asks Claude for, with each block's position measured from the page.
 
-Run from the scantodoc folder:  python tests/samples/build_samples.py
+Run from the repository folder:  python tests/samples/build_samples.py
 The generated files are committed, so the tests do not need a browser.
 """
 

@@ -1,2 +1,9 @@
 skill/scantodoc/wheels/
 build/
+node_modules/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.env
+.DS_Store
+*.log

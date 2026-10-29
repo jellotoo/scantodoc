@@ -2,7 +2,7 @@
 
 Runs the web app on a private, empty ScanToDoc folder with a stand-in for
 Claude (the test suite's FakeClaude), so no API key is used and nothing is
-sent anywhere. Run from the scantodoc folder:
+sent anywhere. Run from the repository folder:
 
     python docs/make_screenshots.py
 """
