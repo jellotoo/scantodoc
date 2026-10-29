@@ -4,7 +4,7 @@ import { pageImage, usd } from "../api.js";
 import { TYPE_COLORS } from "../styleutil.js";
 import { Menu, MenuItem, Spinner, cx } from "./ui.jsx";
 
-const READER_LABEL = { local: "Local OCR", claude: "Claude", textlayer: "PDF text", import: "Imported" };
+const READER_LABEL = { local: "Local OCR", claude: "Claude", agent: "Claude (in chat)", textlayer: "PDF text", import: "Imported" };
 
 function PageBadge({ page }) {
   if (page.status === "error")

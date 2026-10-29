@@ -35,7 +35,7 @@ BLOCK_TYPES: tuple[str, ...] = BlockType.__args__  # type: ignore[attr-defined]
 Alignment = Literal["left", "center", "right", "justify"]
 Direction = Literal["ltr", "rtl"]
 FontCategory = Literal["serif", "sans-serif", "monospace", "script", "rashi"]
-ReaderName = Literal["local", "textlayer", "claude", "import"]
+ReaderName = Literal["local", "textlayer", "claude", "agent", "import"]
 
 SCHEMA_VERSION = 1
 

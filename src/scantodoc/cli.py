@@ -4,6 +4,7 @@
     scantodoc restyle my-book.scantodoc.json --preset "Clean modern" --format pdf
     scantodoc batch ./scans --format docx
     scantodoc serve
+    scantodoc prepare scan.pdf   (then Claude writes the pages)   scantodoc assemble PROJECT
 
 Run `scantodoc COMMAND --help` for every option.
 """
@@ -20,7 +21,7 @@ import click
 
 from . import __version__, config
 from .engine import cost as costs
-from .engine import ingest, tesseract
+from .engine import handoff, ingest, tesseract
 from .engine.pipeline import READERS, ConvertSettings, convert
 from .export import EXTENSIONS, FORMATS, export, load_bundle, normalize_format
 from .project import Project, list_projects
@@ -558,6 +559,121 @@ def batch(folder, recursive, projects_dir, formats, out, **kw):
 
 @main.command(context_settings=CONTEXT)
 @click.argument("inputs", nargs=-1, required=True, type=click.Path(exists=True, path_type=Path))
+@click.option("--name", default=None, help="Name for the project (default: the first input's name).")
+@click.option("--projects-dir", type=click.Path(path_type=Path), default=None,
+              help="Where the project folder is kept (default: ~/ScanToDoc/projects).")
+@click.option("--pages", default=None, help="Only these pages, e.g. '1-10,15' (counting from 1).")
+@click.option("--dpi", type=int, default=300, show_default=True, help="Resolution for page images.")
+@click.option("--no-text-layer", is_flag=True, help="Do not hand over text already inside the PDF.")
+@click.option("--json", "as_json", is_flag=True, help="Print the page list as JSON.")
+def prepare(inputs, name, projects_dir, pages, dpi, no_text_layer, as_json):
+    """Get pages ready for Claude to read in a chat (no API key needed).
+
+    Renders the pages and lists, for each one, the image to look at and the
+    JSON file to write (see agent/reading-rules.md and agent/schema.json in
+    the project). Then run `scantodoc assemble PROJECT`.
+
+    INPUTS can also be one existing project folder, to hand over just some of
+    its pages (for example the ones the free local reader found hard); the
+    other pages are kept.
+
+    \b
+    Examples:
+      scantodoc prepare book.pdf --pages 1-5
+      scantodoc prepare ~/ScanToDoc/projects/book --pages 3,7
+    """
+    settings = ConvertSettings(reader="local", pages=pages, dpi=dpi, use_text_layer=not no_text_layer)
+    if len(inputs) == 1 and (inputs[0] / "project.json").exists():
+        project = Project.open(inputs[0])
+        doc = project.load_document()
+        if doc is None or not doc.pages:
+            raise click.ClickException("This project has no pages yet.")
+        only = ingest.parse_page_range(pages, len(doc.pages))
+        page_list = handoff.prepare(project, settings, only=only)
+    else:
+        files = ingest.collect_inputs(inputs)
+        if not files:
+            raise click.ClickException("No PDF or image files found.")
+        name = name or files[0].stem
+        project = Project.create(name, files, parent=projects_dir, settings=settings.to_dict())
+        page_list = handoff.prepare(project, settings)
+    if as_json:
+        click.echo(json.dumps({"project": str(project.root), "pages": page_list}, ensure_ascii=False, indent=1))
+        return
+    click.echo(f"Project: {project.root}")
+    click.echo(f"Reading rules: {project.root / handoff.AGENT_DIR / 'reading-rules.md'}")
+    for p in page_list:
+        extra = f"  (text layer: {p['text_layer']})" if p["text_layer"] else ""
+        click.echo(f"  Page {p['page']}: look at {p['image']}  ->  write {p['answer']}{extra}")
+    click.echo(f"Then run: scantodoc assemble \"{project.root}\"")
+
+
+@main.command(context_settings=CONTEXT)
+@click.argument("image", type=click.Path(exists=True, dir_okay=False, path_type=Path))
+@click.argument("box", metavar="X0,Y0,X1,Y1")
+@click.option("--out", "-o", type=click.Path(path_type=Path), default=None,
+              help="Where to save the close-up (default: next to the image).")
+def zoom(image, box, out):
+    """Save a close-up of part of a page image, to read small print.
+
+    BOX is on the same 0-1000 scale as page files (0,0 = top-left), e.g.
+    0,0,1000,500 for the top half.
+
+    \b
+    Example:
+      scantodoc zoom pages/page-0003.jpg 0,500,500,1000
+    """
+    from PIL import Image
+
+    try:
+        x0, y0, x1, y1 = (max(0.0, min(1000.0, float(v))) / 1000 for v in box.split(","))
+    except ValueError:
+        raise click.BadParameter("give four numbers, e.g. 0,0,1000,500", param_hint="BOX")
+    if x1 <= x0 or y1 <= y0:
+        raise click.BadParameter("X1 must be more than X0 and Y1 more than Y0", param_hint="BOX")
+    with Image.open(image) as im:
+        crop = im.crop((int(x0 * im.width), int(y0 * im.height), int(x1 * im.width), int(y1 * im.height)))
+        target = out or image.with_name(f"{image.stem}-zoom-{box.replace(',', '-')}.png")
+        crop.save(target)
+    click.echo(str(target))
+
+
+@main.command(context_settings=CONTEXT)
+@click.argument("project_dir", metavar="PROJECT", type=click.Path(exists=True, path_type=Path))
+@click.option("--check", "check_only", is_flag=True, help="Only check the page files and report problems.")
+@click.option("--allow-missing", is_flag=True, help="Build the document even if some pages were not written.")
+@output_options
+@style_options
+def assemble(project_dir, check_only, allow_missing, formats, out, **kw):
+    """Build the document from the page files Claude wrote after `scantodoc
+    prepare`, then export it like `convert` does.
+
+    \b
+    Examples:
+      scantodoc assemble ~/ScanToDoc/projects/book --check
+      scantodoc assemble ~/ScanToDoc/projects/book -f docx,pdf --preset "Classic sefer"
+    """
+    project = Project.open(project_dir)
+    style_kw = _split(kw, STYLE_KEYS)
+    fmts = _formats(formats)
+    doc, problems = handoff.assemble(project, allow_missing=allow_missing, check_only=check_only)
+    for p in problems:
+        click.secho("  " + p, fg="yellow", err=True)
+    if check_only:
+        if problems:
+            raise click.ClickException(f"{len(problems)} problem(s) to fix.")
+        click.secho("All page files are valid.", fg="green")
+        return
+    if doc is None:
+        raise click.ClickException("Fix the problems above (or use --allow-missing), then run assemble again.")
+    style = build_style(project.load_style(), **style_kw)
+    project.save_style(style)
+    _export_all(doc, style, fmts, Path(out or project.root / "exports"), _safe_stem(project.name), project.root)
+    _summary(doc)
+
+
+@main.command(context_settings=CONTEXT)
+@click.argument("inputs", nargs=-1, required=True, type=click.Path(exists=True, path_type=Path))
 @click.option("--model", default=costs.DEFAULT_MODEL, show_default=True, help="Claude model to price.")
 @click.option("--pages", default=None, help="Only these pages, e.g. '1-10'.")
 def estimate(inputs, model, pages):
@@ -587,11 +703,24 @@ def serve(host, port, no_browser):
     from .web.app import create_app
 
     url = f"http://{'localhost' if host in ('127.0.0.1', '0.0.0.0') else host}:{port}"
+    if _port_in_use(host, port):
+        click.echo(f"Something is already running at {url} (probably ScanToDoc, started earlier); opening it.")
+        if not no_browser:
+            _open_browser(url)
+        return
     click.secho(f"ScanToDoc is running at {url}  (press Ctrl+C to stop)", fg="green", bold=True)
     if not no_browser:
         threading.Timer(1.2, lambda: _open_browser(url)).start()
     local = host in ("127.0.0.1", "localhost", "::1")
     uvicorn.run(create_app(local_only=local), host=host, port=port, log_level="warning")
+
+
+def _port_in_use(host: str, port: int) -> bool:
+    import socket
+
+    with socket.socket() as s:
+        s.settimeout(0.5)
+        return s.connect_ex(("127.0.0.1" if host in ("0.0.0.0", "localhost") else host, port)) == 0
 
 
 def _open_browser(url: str) -> None:

@@ -133,7 +133,7 @@ export default function ConvertDialog({ project, config, onStart, onClose, openS
             <Select
               value={model}
               onChange={setModel}
-              options={(config?.models || []).map((m) => [m.id, `${m.label} ($${m.input}/$${m.output} per M tokens)`])}
+              options={(config?.models || []).map((m) => [m.id, m.label])}
             />
           </Field>
         )}
@@ -153,7 +153,7 @@ export default function ConvertDialog({ project, config, onStart, onClose, openS
             </div>
           </Field>
         )}
-        <Field label="Pages" hint={`Leave empty for all ${project.source_pages || ""} pages, or e.g. 1-10, 15`}>
+        <Field label="Pages" hint={`Leave empty for all ${project.source_pages === 1 ? "1 page" : `${project.source_pages || ""} pages`}, or e.g. 1-10, 15`}>
           <input className="field" value={pages} onChange={(e) => setPages(e.target.value)} placeholder="All pages" />
         </Field>
       </div>

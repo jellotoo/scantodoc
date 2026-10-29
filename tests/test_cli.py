@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 from click.testing import CliRunner
 from conftest import needs_tesseract
@@ -91,3 +92,14 @@ def test_preset_save_and_use(tmp_path):
     assert r.exit_code == 0
     r = run("preset", "show", "navy")
     assert '"h1": "#000080"' in r.output
+
+
+def test_skill_reference_matches_the_command_line():
+    """skill/scantodoc/reference/options.md is generated; rebuild it with `python skill/build.py --options`."""
+    import importlib.util
+
+    root = Path(__file__).parent.parent
+    spec = importlib.util.spec_from_file_location("skill_build", root / "skill" / "build.py")
+    build = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(build)
+    assert (root / "skill/scantodoc/reference/options.md").read_text(encoding="utf-8") == build.options_markdown()
