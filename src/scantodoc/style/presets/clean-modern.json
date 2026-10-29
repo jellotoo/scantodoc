@@ -1,0 +1,9 @@
+{
+  "name": "Clean modern",
+  "description": "A clean sans-serif look with generous spacing and navy headings.",
+  "fonts": {"body": {"latin": "Calibri", "hebrew": "Arial"}},
+  "colors": {"mode": "custom", "custom": {"body": "#1F2937", "h1": "#1F3A5F", "h2": "#1F3A5F", "h3": "#334E68", "h4": "#334E68"}, "link": "#2563EB", "accent": "#93C5FD", "accent_style": "underline"},
+  "spacing": {"line_spacing": 1.3, "space_before": 0, "space_after": 8, "first_line_indent": 0},
+  "alignment": {"mode": "start"},
+  "page": {"size": "keep", "margins": {"top": 1, "bottom": 1, "left": 1.1, "right": 1.1}}
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Academic",
+  "description": "Paper/thesis style: 12 pt serif, 1.5 line spacing, black headings, table of contents, title page and page numbers.",
+  "fonts": {"body": {"latin": "Times New Roman", "hebrew": "David"}},
+  "sizes": {"mode": "exact", "exact": {"body": 12, "list": 12, "quote": 11, "h1": 18, "h2": 15, "h3": 13, "h4": 12, "caption": 10, "footnote": 10, "table": 11}},
+  "colors": {"mode": "black"},
+  "spacing": {"line_spacing": 1.5, "space_before": 0, "space_after": 6, "first_line_indent": 36},
+  "alignment": {"mode": "justify"},
+  "page": {"size": "letter", "margins": {"top": 1, "bottom": 1, "left": 1, "right": 1}},
+  "extras": {"toc": true, "title_page": true, "page_numbers": true}
+}

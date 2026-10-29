@@ -1,0 +1,10 @@
+{
+  "name": "Classic sefer",
+  "description": "Traditional book typography: Frank Ruehl for Hebrew, Times for English, justified text, centred black headings, page numbers.",
+  "fonts": {"body": {"latin": "Times New Roman", "hebrew": "Frank Ruehl CLM"}},
+  "sizes": {"mode": "scale", "scale": 105},
+  "colors": {"mode": "black"},
+  "spacing": {"line_spacing": 1.25, "space_before": 0, "space_after": 4, "first_line_indent": 18},
+  "alignment": {"mode": "justify", "headings": false},
+  "extras": {"page_numbers": true, "regions": "per_page"}
+}
