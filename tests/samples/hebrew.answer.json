@@ -1,0 +1,377 @@
+{
+ "pages": [
+  {
+   "regions": [],
+   "blocks": [
+    {
+     "type": "heading",
+     "region": "",
+     "heading_level": 1,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "center",
+     "direction": "rtl",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 22,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.1086,
+      0.8824,
+      0.1389
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "פרק ראשון: הקדמה",
+       "bold": true,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "#1F3A5F",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "paragraph",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "justify",
+     "direction": "rtl",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 14,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.149,
+      0.8824,
+      0.1967
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "זהו דף לדוגמה הכתוב בעברית. המילה ",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": "חשובה",
+       "bold": true,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": " מודגשת, ויש כאן גם מילים באנגלית כמו Rashi ו-Rambam בתוך השורה.",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "heading",
+     "region": "",
+     "heading_level": 2,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "right",
+     "direction": "rtl",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 17,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.2144,
+      0.8824,
+      0.239
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "מקורות",
+       "bold": true,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "list_item",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "א.",
+     "alignment": "right",
+     "direction": "rtl",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 14,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.2491,
+      0.8824,
+      0.269
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "ספר בראשית",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "list_item",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "ב.",
+     "alignment": "right",
+     "direction": "rtl",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 14,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.2728,
+      0.8824,
+      0.2926
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "מסכת ברכות",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "quote",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "center",
+     "direction": "rtl",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 16,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.3002,
+      0.8824,
+      0.3275
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "paragraph",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.335,
+      0.8824,
+      0.3555
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "The Hebrew word ",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": "שלום",
+       "bold": true,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": " means peace, and it often appears inside English sentences.",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "paragraph",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "right",
+     "direction": "rtl",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 14,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.3631,
+      0.8824,
+      0.3869
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "דאָס איז אַ ייִדיש זאַץ פֿון אַ בוך.",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "paragraph",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "right",
+     "direction": "rtl",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 14,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.3945,
+      0.8824,
+      0.4184
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "הערה חשובה בצבע אדום.",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "#C0392B",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    }
+   ]
+  }
+ ]
+}

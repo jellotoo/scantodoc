@@ -1,0 +1,913 @@
+{
+ "pages": [
+  {
+   "regions": [],
+   "blocks": [
+    {
+     "type": "header",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "center",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 9,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.0409,
+      0.8824,
+      0.0551
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "ScanToDoc Sample Report — Chapter One",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "heading",
+     "region": "",
+     "heading_level": 1,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "center",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 24,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.1086,
+      0.8824,
+      0.1436
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "A Short History of Printing",
+       "bold": true,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "#1F3A5F",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "paragraph",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "justify",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.1537,
+      0.8824,
+      0.2355
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "The invention of movable type changed how knowledge travelled. Before it, every book was copied by hand, and a ",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": "single",
+       "bold": true,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": " mistake could pass from copy to copy for centuries. Printers could now set a page once and print it ",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": "hundreds of times",
+       "bold": false,
+       "italic": true,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": ", which made books cheaper and far more ",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": "consistent",
+       "bold": false,
+       "italic": false,
+       "underline": true,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": ".",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "heading",
+     "region": "",
+     "heading_level": 2,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 17,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.2532,
+      0.8824,
+      0.2778
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "Early Presses",
+       "bold": true,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "#1F3A5F",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "paragraph",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "justify",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.2879,
+      0.8824,
+      0.3492
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "Early presses were made of wood and worked like a wine press. A skilled team could print a few hundred sheets a day. ",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": "Ink was mixed by hand from soot and varnish",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "#C0392B",
+       "uncertain": false
+      },
+      {
+       "text": ", and paper was dampened before printing so that it took the ink evenly.",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "list_item",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "•",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.3568,
+      0.8824,
+      0.3738
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "Gutenberg Bible, about 1455",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "list_item",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "•",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.3776,
+      0.8824,
+      0.3947
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "Soncino Hebrew Bible, 1488",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "list_item",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "•",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.3985,
+      0.8824,
+      0.4155
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "Aldine editions of the classics, from 1495",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "heading",
+     "region": "",
+     "heading_level": 2,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 17,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.4332,
+      0.8824,
+      0.4578
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "Why It Mattered",
+       "bold": true,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "#1F3A5F",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "paragraph",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "justify",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.4679,
+      0.8824,
+      0.5088
+     ],
+     "continues_on_next_page": true,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "Printed books spread new ideas quickly. Scholars in different cities could finally refer to the same page of the same ",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": "edition, and errors could be corrected in the next printing rather than",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "page_number",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "center",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 10,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.944,
+      0.8824,
+      0.9591
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "1",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    }
+   ]
+  },
+  {
+   "regions": [],
+   "blocks": [
+    {
+     "type": "header",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "center",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 9,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.0409,
+      0.8824,
+      0.0551
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "ScanToDoc Sample Report — Chapter One",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "paragraph",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "justify",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.0985,
+      0.8824,
+      0.1189
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": true,
+     "runs": [
+      {
+       "text": "copied forward forever. This simple change is one reason the period is called a revolution.",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "heading",
+     "region": "",
+     "heading_level": 2,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 17,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.1366,
+      0.8824,
+      0.1612
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "Steps in Setting a Page",
+       "bold": true,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "#1F3A5F",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "list_item",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "1.",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.1713,
+      0.8824,
+      0.1884
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "Pick each letter from the type case.",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "list_item",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "2.",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.1921,
+      0.8824,
+      0.2092
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "Lock the lines into a frame called a chase.",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "list_item",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "3.",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.213,
+      0.8824,
+      0.23
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "Ink the type and pull the press.",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "quote",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 1,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.2376,
+      0.8824,
+      0.258
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "“What the printing press did for books, the scanner can do again for old books.”",
+       "bold": false,
+       "italic": true,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "paragraph",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "justify",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.2656,
+      0.8824,
+      0.3093
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "Modern readers can reach the same books in seconds. Water has the formula H",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": "2",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": true,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": "O, and Einstein wrote E = mc",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": "2",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": true,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": "; even such small details should survive conversion.",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "footnote",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 9,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.8935,
+      0.8824,
+      0.9136
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "1 Dates are approximate and vary between sources.",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "page_number",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "center",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 10,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.1176,
+      0.944,
+      0.8824,
+      0.9591
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "2",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    }
+   ]
+  }
+ ]
+}

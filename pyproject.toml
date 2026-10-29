@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scantodoc"
+version = "0.1.0"
+description = "Turn scanned PDFs into editable, well-formatted documents (Word, HTML, PDF, Markdown), with full Hebrew/RTL support."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "pymupdf>=1.24",
+    "pillow>=10",
+    "numpy>=1.26",
+    "pydantic>=2.6",
+    "click>=8.1",
+    "python-docx>=1.1",
+    "anthropic>=0.60",
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+    "python-multipart>=0.0.9",
+    "playwright>=1.44",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "httpx>=0.27"]
+
+[project.scripts]
+scantodoc = "scantodoc.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+scantodoc = [
+    "fonts/*",
+    "style/presets/*.json",
+    "web/static/**/*",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "tesseract: needs the Tesseract OCR program installed",
+    "chromium: needs a Chromium browser for PDF export",
+    "live: calls the real Claude API (needs ANTHROPIC_API_KEY, costs money)",
+]

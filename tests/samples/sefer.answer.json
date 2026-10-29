@@ -1,0 +1,130 @@
+{
+ "pages": [
+  {
+   "regions": [
+    {
+     "id": "main",
+     "label": "Main text",
+     "kind": "main",
+     "font_category": "serif"
+    },
+    {
+     "id": "rashi",
+     "label": "Rashi",
+     "kind": "commentary",
+     "font_category": "rashi"
+    }
+   ],
+   "blocks": [
+    {
+     "type": "heading",
+     "region": "main",
+     "heading_level": 1,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "center",
+     "direction": "rtl",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 26,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.4126,
+      0.1086,
+      0.8824,
+      0.1465
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "מסכת ברכות",
+       "bold": true,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "paragraph",
+     "region": "main",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "justify",
+     "direction": "rtl",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 16,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.4126,
+      0.1565,
+      0.8824,
+      0.2383
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "מאימתי קורין את שמע בערבין. משעה שהכהנים נכנסים לאכול בתרומתן עד סוף האשמורה הראשונה, דברי רבי אליעזר.",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "paragraph",
+     "region": "rashi",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "justify",
+     "direction": "rtl",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "rashi",
+     "bbox_frac": [
+      0.1176,
+      0.1803,
+      0.3525,
+      0.2416
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "מאימתי. פירוש לדוגמה בכתב רש״י, המבאר את דברי המשנה בקצרה ובלשון פשוטה.",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    }
+   ]
+  }
+ ]
+}

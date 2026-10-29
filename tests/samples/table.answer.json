@@ -1,0 +1,528 @@
+{
+ "pages": [
+  {
+   "regions": [],
+   "blocks": [
+    {
+     "type": "heading",
+     "region": "",
+     "heading_level": 1,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 22,
+     "font_category": "sans-serif",
+     "bbox_frac": [
+      0.1176,
+      0.1086,
+      0.8824,
+      0.1408
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "Quarterly Results",
+       "bold": true,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "paragraph",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "sans-serif",
+     "bbox_frac": [
+      0.1176,
+      0.1509,
+      0.8824,
+      0.1713
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "The table below summarises sales by region. Figures are in thousands of dollars.",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "table",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 11,
+     "font_category": "sans-serif",
+     "bbox_frac": [
+      0.1941,
+      0.1839,
+      0.8059,
+      0.2997
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [],
+     "table_rows": [
+      {
+       "cells": [
+        {
+         "runs": [
+          {
+           "text": "Region",
+           "bold": true,
+           "italic": false,
+           "underline": false,
+           "strikethrough": false,
+           "superscript": false,
+           "subscript": false,
+           "color": "",
+           "uncertain": false
+          }
+         ],
+         "colspan": 1,
+         "rowspan": 1,
+         "is_header": true
+        },
+        {
+         "runs": [
+          {
+           "text": "Q1",
+           "bold": true,
+           "italic": false,
+           "underline": false,
+           "strikethrough": false,
+           "superscript": false,
+           "subscript": false,
+           "color": "",
+           "uncertain": false
+          }
+         ],
+         "colspan": 1,
+         "rowspan": 1,
+         "is_header": true
+        },
+        {
+         "runs": [
+          {
+           "text": "Q2",
+           "bold": true,
+           "italic": false,
+           "underline": false,
+           "strikethrough": false,
+           "superscript": false,
+           "subscript": false,
+           "color": "",
+           "uncertain": false
+          }
+         ],
+         "colspan": 1,
+         "rowspan": 1,
+         "is_header": true
+        },
+        {
+         "runs": [
+          {
+           "text": "Total",
+           "bold": true,
+           "italic": false,
+           "underline": false,
+           "strikethrough": false,
+           "superscript": false,
+           "subscript": false,
+           "color": "",
+           "uncertain": false
+          }
+         ],
+         "colspan": 1,
+         "rowspan": 1,
+         "is_header": true
+        }
+       ]
+      },
+      {
+       "cells": [
+        {
+         "runs": [
+          {
+           "text": "North",
+           "bold": false,
+           "italic": false,
+           "underline": false,
+           "strikethrough": false,
+           "superscript": false,
+           "subscript": false,
+           "color": "",
+           "uncertain": false
+          }
+         ],
+         "colspan": 1,
+         "rowspan": 1,
+         "is_header": false
+        },
+        {
+         "runs": [
+          {
+           "text": "120",
+           "bold": false,
+           "italic": false,
+           "underline": false,
+           "strikethrough": false,
+           "superscript": false,
+           "subscript": false,
+           "color": "",
+           "uncertain": false
+          }
+         ],
+         "colspan": 1,
+         "rowspan": 1,
+         "is_header": false
+        },
+        {
+         "runs": [
+          {
+           "text": "135",
+           "bold": false,
+           "italic": false,
+           "underline": false,
+           "strikethrough": false,
+           "superscript": false,
+           "subscript": false,
+           "color": "",
+           "uncertain": false
+          }
+         ],
+         "colspan": 1,
+         "rowspan": 1,
+         "is_header": false
+        },
+        {
+         "runs": [
+          {
+           "text": "255",
+           "bold": false,
+           "italic": false,
+           "underline": false,
+           "strikethrough": false,
+           "superscript": false,
+           "subscript": false,
+           "color": "",
+           "uncertain": false
+          }
+         ],
+         "colspan": 1,
+         "rowspan": 1,
+         "is_header": false
+        }
+       ]
+      },
+      {
+       "cells": [
+        {
+         "runs": [
+          {
+           "text": "South",
+           "bold": false,
+           "italic": false,
+           "underline": false,
+           "strikethrough": false,
+           "superscript": false,
+           "subscript": false,
+           "color": "",
+           "uncertain": false
+          }
+         ],
+         "colspan": 1,
+         "rowspan": 1,
+         "is_header": false
+        },
+        {
+         "runs": [
+          {
+           "text": "98",
+           "bold": false,
+           "italic": false,
+           "underline": false,
+           "strikethrough": false,
+           "superscript": false,
+           "subscript": false,
+           "color": "",
+           "uncertain": false
+          }
+         ],
+         "colspan": 1,
+         "rowspan": 1,
+         "is_header": false
+        },
+        {
+         "runs": [
+          {
+           "text": "110",
+           "bold": false,
+           "italic": false,
+           "underline": false,
+           "strikethrough": false,
+           "superscript": false,
+           "subscript": false,
+           "color": "",
+           "uncertain": false
+          }
+         ],
+         "colspan": 1,
+         "rowspan": 1,
+         "is_header": false
+        },
+        {
+         "runs": [
+          {
+           "text": "208",
+           "bold": false,
+           "italic": false,
+           "underline": false,
+           "strikethrough": false,
+           "superscript": false,
+           "subscript": false,
+           "color": "",
+           "uncertain": false
+          }
+         ],
+         "colspan": 1,
+         "rowspan": 1,
+         "is_header": false
+        }
+       ]
+      },
+      {
+       "cells": [
+        {
+         "runs": [
+          {
+           "text": "Combined (both regions)",
+           "bold": false,
+           "italic": false,
+           "underline": false,
+           "strikethrough": false,
+           "superscript": false,
+           "subscript": false,
+           "color": "",
+           "uncertain": false
+          }
+         ],
+         "colspan": 3,
+         "rowspan": 1,
+         "is_header": false
+        },
+        {
+         "runs": [
+          {
+           "text": "463",
+           "bold": false,
+           "italic": false,
+           "underline": false,
+           "strikethrough": false,
+           "superscript": false,
+           "subscript": false,
+           "color": "",
+           "uncertain": false
+          }
+         ],
+         "colspan": 1,
+         "rowspan": 1,
+         "is_header": false
+        }
+       ]
+      }
+     ],
+     "figure_description": ""
+    },
+    {
+     "type": "caption",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "center",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 10,
+     "font_category": "sans-serif",
+     "bbox_frac": [
+      0.1176,
+      0.3123,
+      0.8824,
+      0.3294
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "Table 1. Sales by region.",
+       "bold": false,
+       "italic": true,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "figure",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "serif",
+     "bbox_frac": [
+      0.3088,
+      0.3445,
+      0.6912,
+      0.5197
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [],
+     "table_rows": [],
+     "figure_description": "Bar chart comparing the two regions"
+    },
+    {
+     "type": "caption",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "center",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 10,
+     "font_category": "sans-serif",
+     "bbox_frac": [
+      0.1176,
+      0.5348,
+      0.8824,
+      0.5519
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "Figure 1. North sold more in both quarters.",
+       "bold": false,
+       "italic": true,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    },
+    {
+     "type": "paragraph",
+     "region": "",
+     "heading_level": 0,
+     "list_level": 0,
+     "list_marker": "",
+     "alignment": "left",
+     "direction": "ltr",
+     "indent_level": 0,
+     "first_line_indent": false,
+     "font_size_pt": 12,
+     "font_category": "sans-serif",
+     "bbox_frac": [
+      0.1176,
+      0.5595,
+      0.8824,
+      0.5799
+     ],
+     "continues_on_next_page": false,
+     "continues_from_previous_page": false,
+     "runs": [
+      {
+       "text": "Growth was steady. ",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": "Note:",
+       "bold": true,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      },
+      {
+       "text": " the combined total includes both regions.",
+       "bold": false,
+       "italic": false,
+       "underline": false,
+       "strikethrough": false,
+       "superscript": false,
+       "subscript": false,
+       "color": "",
+       "uncertain": false
+      }
+     ],
+     "table_rows": [],
+     "figure_description": ""
+    }
+   ]
+  }
+ ]
+}
