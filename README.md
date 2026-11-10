@@ -9,7 +9,7 @@ with Rashi and Tosafot around the main text.
 
 ![Hebrew page: the scan on the left, the editable result in the middle, styling on the right](docs/screenshots/03-workspace-hebrew.png)
 
-ScanToDoc comes in three forms, all sharing the same engine:
+ScanToDoc comes in four forms, all sharing the same engine:
 
 - **An app in your web browser.** It runs only on your own computer. You drop a file, watch
   the pages being read, compare the scan with the result side by side, fix things and
@@ -17,6 +17,9 @@ ScanToDoc comes in three forms, all sharing the same engine:
 - **A command** for the terminal, for whole folders and automation. ([Commands](#5-the-command-line))
 - **A Claude skill**, so you can just ask Claude to "make this scan an editable Word file".
   ([Claude skill](#6-use-it-from-claude))
+- **A browser extension** for Chrome and Edge. Right-click a PDF link or a picture on any web
+  page, and a Word file lands in your Downloads, read for free on your computer.
+  ([Browser extension](#7-the-browser-extension))
 
 ---
 
@@ -28,9 +31,10 @@ ScanToDoc comes in three forms, all sharing the same engine:
 4. [Optional extras: Tesseract, fonts, an API key](#4-optional-extras)
 5. [The command line](#5-the-command-line)
 6. [Use it from Claude (the skill)](#6-use-it-from-claude)
-7. [Privacy](#7-privacy)
-8. [If something goes wrong](#8-if-something-goes-wrong)
-9. [For developers](#9-for-developers)
+7. [The browser extension](#7-the-browser-extension)
+8. [Privacy](#8-privacy)
+9. [If something goes wrong](#9-if-something-goes-wrong)
+10. [For developers](#10-for-developers)
 
 ---
 
@@ -309,10 +313,46 @@ Menu names can change.
 
 ---
 
-## 7. Privacy
+## 7. The browser extension
+
+The extension converts files without opening the app. It works in **Google Chrome** and
+**Microsoft Edge**.
+
+- **Right-click a link** to a PDF or picture, or **right-click a picture**, and choose
+  *Convert … with ScanToDoc*.
+- **Reading a PDF in the browser?** Click the ScanToDoc button in the toolbar, then
+  **Convert this PDF**.
+- **Files on your computer:** click the ScanToDoc button, then **Convert files from this
+  computer…**.
+
+The finished file goes to your **Downloads** folder, and a notice pops up. The popup lets you
+choose the format (Word, PDF, web page, Markdown, text), the look (any preset), and the
+languages on the pages. Click **Open in ScanToDoc** to fix text or restyle in the full app.
+
+This is the **free version**. It always uses the free local reader, so ScanToDoc and
+Tesseract must be installed and running on your computer. It never uploads your files or
+uses an API key; the app itself refuses anything else from the extension.
+
+**To install it** (the extension isn't in the Chrome Web Store):
+
+1. Open `chrome://extensions` (in Edge: `edge://extensions`).
+2. Turn on **Developer mode**: top right in Chrome, on the left in Edge.
+3. Click **Load unpacked** and choose the **`browser-extension`** folder inside the ScanToDoc
+   folder.
+4. Pin the ScanToDoc button: click the puzzle-piece icon in the toolbar.
+
+The first time you convert something from a website, the extension asks once for permission
+to download files from websites. More details and troubleshooting are in
+[browser-extension/README.md](browser-extension/README.md).
+
+---
+
+## 8. Privacy
 
 - The app only listens to your own computer (`localhost`). It refuses requests that come
   from other websites, so a web page you visit cannot use ScanToDoc or your API key.
+- The one exception is ScanToDoc's own browser extension, recognised by its fixed ID. It
+  can only upload files, pick a preset, and start or stop a free, local conversion.
 - With the **Local** reader nothing leaves your computer.
 - With **Claude** or **Hybrid**, the page images that Claude reads are sent to Anthropic's
   API. Nothing else is sent.
@@ -322,7 +362,7 @@ Menu names can change.
 
 ---
 
-## 8. If something goes wrong
+## 9. If something goes wrong
 
 - **Run `scantodoc doctor`** (or open **Settings** in the app). It lists what is missing
   and how to fix it.
@@ -343,7 +383,7 @@ Menu names can change.
 
 ---
 
-## 9. For developers
+## 10. For developers
 
 ```bash
 pip install -e ".[dev]"
@@ -366,6 +406,7 @@ src/scantodoc/
   cli.py       the scantodoc command
 frontend/      React + Tailwind source of the web interface
 skill/         the Claude skill
+browser-extension/  the Chrome/Edge extension (free version; plain JavaScript, no build step)
 tests/         tests and sample pages (English, Hebrew/English, a table, a Gemara-style page)
 ```
 

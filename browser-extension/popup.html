@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ScanToDoc</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { width: 360px; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+    .jobs { max-height: 260px; overflow-y: auto; }
+    #settings { border-top: 1px solid var(--border); padding-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="icons/icon32.png" alt="">
+    <h1>ScanToDoc</h1>
+    <span class="pill" title="Pages are read on this computer, for free">Free</span>
+    <span class="spacer"></span>
+    <button class="icon-btn" id="toggle-settings" title="Settings" aria-label="Settings" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
+  </div>
+
+  <div id="status" class="status"></div>
+
+  <div id="actions" style="display:flex; flex-direction:column; gap:6px">
+    <button class="btn primary wide hidden" id="convert-tab" data-testid="convert-tab">Convert this PDF</button>
+    <button class="btn wide" id="convert-files" data-testid="convert-files">Convert files from this computer…</button>
+  </div>
+
+  <div class="options" id="options"></div>
+
+  <div>
+    <p class="section-title">Recent</p>
+    <div class="jobs" id="jobs"></div>
+  </div>
+
+  <div id="settings" class="hidden">
+    <div class="options">
+      <label class="name" for="port">Port</label>
+      <input type="number" id="port" min="1" max="65535" data-testid="port">
+    </div>
+    <p class="footer">The port ScanToDoc uses on this computer (8765 unless you started it with <code>--port</code>).</p>
+    <div style="display:flex; gap:6px; flex-wrap:wrap">
+      <button class="btn small" id="open-app">Open the ScanToDoc app</button>
+      <button class="btn small" id="clear">Clear finished</button>
+    </div>
+  </div>
+
+  <p class="footer">Free version: pages are read on this computer, and nothing is uploaded to the internet.</p>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

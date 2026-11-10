@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convert with ScanToDoc</title>
+  <link rel="icon" href="icons/icon32.png">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    main { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; display: flex; flex-direction: column; gap: 16px; }
+    .card { border: 1px solid var(--border); border-radius: 10px; background: var(--card); padding: 16px; }
+    .drop {
+      border: 2px dashed var(--border); border-radius: 10px; background: var(--card);
+      padding: 28px 16px; text-align: center; display: flex; flex-direction: column; gap: 8px; align-items: center;
+    }
+    .drop.over { border-color: var(--accent); background: var(--accent-soft); }
+    .drop p { margin: 0; }
+    .files { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+    .files li { display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 4px 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--card); }
+    .files li span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    h2 { font-size: 16px; margin: 0 0 6px; }
+    .note { color: var(--muted); font-size: 13px; margin: 0; }
+    .error { color: var(--bad); font-size: 13px; margin: 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="header">
+      <img src="icons/icon32.png" alt="">
+      <h1>Convert with ScanToDoc</h1>
+      <span class="pill">Free</span>
+    </div>
+
+    <div id="status" class="status"></div>
+
+    <section id="allow" class="card hidden" data-testid="allow-card">
+      <h2>Allow ScanToDoc to download files from websites</h2>
+      <p class="note">To convert a PDF or picture from a web page, the extension downloads it for you, the same way
+        your browser does when you click it, and hands it to ScanToDoc on this computer. Your browser will ask you once.</p>
+      <p style="margin:12px 0 0"><button class="btn primary" id="allow-button">Allow</button></p>
+      <p class="note hidden" id="allow-result" style="margin-top:8px"></p>
+    </section>
+
+    <section id="pick">
+      <div class="drop" id="drop" data-testid="dropzone">
+        <p><b>Drop scanned PDFs or page pictures here</b></p>
+        <p class="note">PDF, PNG, JPG, TIFF, WebP, GIF or BMP. Several pictures become one document, in name order.</p>
+        <p><button class="btn primary" id="choose">Choose files</button></p>
+        <input type="file" id="file-input" data-testid="file-input" multiple hidden
+          accept=".pdf,.png,.jpg,.jpeg,.tif,.tiff,.webp,.gif,.bmp,application/pdf,image/*">
+      </div>
+      <ul class="files" id="files" style="margin-top:8px"></ul>
+    </section>
+
+    <section class="card">
+      <div class="options">
+        <label class="name" for="name">Name</label>
+        <input type="text" id="name" placeholder="Taken from the first file" data-testid="name">
+      </div>
+      <div class="options" id="options" style="margin-top:6px"></div>
+      <p style="margin:14px 0 0"><button class="btn primary wide" id="convert" data-testid="convert" disabled>Convert</button></p>
+      <p class="error hidden" id="error" style="margin-top:8px"></p>
+    </section>
+
+    <section id="progress" class="hidden">
+      <p class="section-title">Converting</p>
+      <div class="jobs" id="jobs"></div>
+      <p class="note" style="margin-top:8px">You can close this tab: ScanToDoc keeps going and saves the file to your Downloads folder.</p>
+    </section>
+
+    <p class="footer">Free version: pages are read on this computer by ScanToDoc's free reader, and nothing is uploaded to the internet.</p>
+  </main>
+  <script type="module" src="convert.js"></script>
+</body>
+</html>

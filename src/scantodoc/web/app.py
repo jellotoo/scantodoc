@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import os
 import re
 import shutil
 import tempfile
@@ -41,6 +42,26 @@ from ..style.resolve import resolve
 STATIC_DIR = Path(__file__).resolve().parent / "static"
 SAFE_NAME = re.compile(r"^[\w.\-֐-׿ ]+$")
 LOCAL_HOSTS = {"localhost", "127.0.0.1", "::1"}
+
+# The ScanToDoc browser extension (browser-extension/). Its ID is fixed by the
+# public key in its manifest. It may only start free, local conversions; more
+# extension IDs (for example a store-published copy) can be allowed with
+# SCANTODOC_EXTENSION_IDS=id1,id2.
+EXTENSION_ID = "fhkcgfiapfnbhklppenjbkaabmfhpgkl"
+EXTENSION_ROUTES = [
+    ("POST", re.compile(r"^/api/projects$")),
+    ("POST", re.compile(r"^/api/projects/[^/]+/(style|convert|cancel)$")),
+]
+
+
+def extension_ids() -> set[str]:
+    extra = os.environ.get("SCANTODOC_EXTENSION_IDS", "")
+    return {EXTENSION_ID, *(i.strip() for i in extra.split(",") if i.strip())}
+
+
+def _from_extension(origin: str) -> bool:
+    url = urlparse(origin)
+    return url.scheme == "chrome-extension" and url.netloc in extension_ids()
 
 
 # ---------------------------------------------------------------- jobs
@@ -88,6 +109,11 @@ class ConvertBody(BaseModel):
     languages: str = "eng+heb"
     pages: Optional[str] = None
     force: bool = False
+
+
+class StyleBody(BaseModel):
+    preset: Optional[str] = None
+    style: Optional[dict] = None
 
 
 class KeyBody(BaseModel):
@@ -224,7 +250,16 @@ def create_app(claude_client: Any = None, local_only: bool = True) -> FastAPI:
         if local_only and _host_name(host) not in LOCAL_HOSTS:
             return JSONResponse({"detail": "ScanToDoc only answers requests to localhost."}, status_code=403)
         origin = request.headers.get("origin")
-        if request.method not in ("GET", "HEAD") and origin and urlparse(origin).netloc != host:
+        request.state.free_only = False
+        if origin and _from_extension(origin):
+            # The browser extension: free, local conversions only.
+            request.state.free_only = True
+            path = request.url.path
+            if request.method not in ("GET", "HEAD") and not any(
+                request.method == m and r.match(path) for m, r in EXTENSION_ROUTES
+            ):
+                return JSONResponse({"detail": "The browser extension cannot do that."}, status_code=403)
+        elif request.method not in ("GET", "HEAD") and origin and urlparse(origin).netloc != host:
             # Another website's page trying to change something here.
             return JSONResponse({"detail": "Requests from other websites are not allowed."}, status_code=403)
         return await call_next(request)
@@ -388,8 +423,10 @@ def create_app(claude_client: Any = None, local_only: bool = True) -> FastAPI:
         }
 
     @app.post("/api/projects/{pid}/convert")
-    def start_convert(pid: str, body: ConvertBody):
+    def start_convert(pid: str, body: ConvertBody, request: Request):
         project = _project(pid)
+        if request.state.free_only and body.reader != "local":
+            raise HTTPException(403, "The free browser extension only uses the local reader.")
         job = job_for(pid)
         if job and job.status == "running":
             raise HTTPException(409, "This project is already converting.")
@@ -418,6 +455,50 @@ def create_app(claude_client: Any = None, local_only: bool = True) -> FastAPI:
         jobs[pid] = job
         job.thread.start()
         return {"status": "running"}
+
+    @app.get("/api/projects/{pid}/progress")
+    def progress(pid: str):
+        """A small status summary, for the browser extension's progress bar."""
+        project = _project(pid)
+        job = job_for(pid)
+        meta = project.meta()
+        status = meta.get("status")
+        if job and job.status == "running":
+            status = "converting"
+        elif status == "converting":
+            status = "interrupted"
+        doc = project.load_document()
+        pages = doc.pages if doc else []
+        error = ""
+        if status == "error":
+            error = meta.get("error", "")
+            if not error and job:
+                error = next((e["error"] for e in reversed(job.events) if e.get("error")), "")
+        return {
+            "id": pid,
+            "name": meta.get("name"),
+            "status": status,
+            "total": len(pages) or meta.get("page_count", 0),
+            "done": sum(1 for p in pages if p.status == "done"),
+            "failed": sum(1 for p in pages if p.status == "error"),
+            "error": error,
+        }
+
+    @app.post("/api/projects/{pid}/style")
+    def set_style(pid: str, body: StyleBody):
+        """Choose the look of a project's exports: a preset, then any options on top."""
+        project = _project(pid)
+        base = StyleOptions()
+        if body.preset:
+            if body.preset not in {p["key"] for p in presets.list_presets()}:
+                raise HTTPException(404, "No such preset.")
+            base = presets.load(body.preset)
+        try:
+            style = merge(base, body.style or {})
+        except Exception as exc:  # noqa: BLE001
+            raise HTTPException(422, f"Invalid style: {exc}") from exc
+        project.save_style(style)
+        return {"saved": True}
 
     @app.post("/api/projects/{pid}/cancel")
     def cancel_convert(pid: str):

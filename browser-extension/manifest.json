@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "ScanToDoc (free)",
+  "short_name": "ScanToDoc",
+  "version": "0.1.0",
+  "description": "Turn scanned PDFs and page pictures into editable Word, PDF, web or text files, read for free on your own computer.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjAsivXVzC3wzCs0bIaag3ZSk2xRx05iDL8XY6veHT+N06gQixnX20SoQUGLMzh8E+2eKYr1lv3ocV5XcyTYstVWm+VB56DJh9N6yGBZosN0cjbpFGmqFgHLQysSSHNx3NYzwCrhSa7klNIZynsN3L8HwYnMJAVGs2W4EnP91MEkTGNgXOeXeqkXh3Hb3urN1sDqdSdsGcGVWSRg8PL1tV9my1je6hB5OFmb6mz1eL5rFNdJGGaGjNdsSVL28HQR0ZocJklxyXmEH7l2VmVv92aEYwGjpIpGeSUxsUxxbbRa7faCNBwR4DFbKIxJNBhgWhmh1/POdKNr/z+tSXYEzKwIDAQAB",
+  "minimum_chrome_version": "116",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "ScanToDoc",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["activeTab", "alarms", "contextMenus", "downloads", "notifications", "storage"],
+  "host_permissions": ["http://127.0.0.1/*", "http://localhost/*"],
+  "optional_host_permissions": ["<all_urls>"]
+}

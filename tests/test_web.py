@@ -245,3 +245,84 @@ def test_other_websites_are_turned_away():
     assert local.post("/api/key", json={"key": SECRET}, headers={"Origin": "http://127.0.0.1:8765"}).status_code == 200
     assert TestClient(create_app(), base_url="http://[::1]:8765").get("/api/config").status_code == 200
     assert TestClient(create_app(local_only=False), base_url="http://192.168.1.5:8765").get("/api/config").status_code == 200
+
+
+def make_style_default():
+    from scantodoc.style.options import StyleOptions
+
+    return json.loads(StyleOptions().model_dump_json())
+
+
+EXTENSION = {"Origin": "chrome-extension://fhkcgfiapfnbhklppenjbkaabmfhpgkl"}
+
+
+def test_extension_id_matches_the_manifest_key():
+    import base64
+    import hashlib
+    from pathlib import Path
+
+    from scantodoc.web.app import EXTENSION_ID
+
+    manifest = json.loads((Path(__file__).parent.parent / "browser-extension" / "manifest.json").read_text())
+    digest = hashlib.sha256(base64.b64decode(manifest["key"])).hexdigest()[:32]
+    assert "".join(chr(ord("a") + int(c, 16)) for c in digest) == EXTENSION_ID
+    assert EXTENSION["Origin"].endswith(EXTENSION_ID)
+
+
+@needs_tesseract
+def test_browser_extension_free_conversion(sample):
+    client = make_client(claude_client=FakeClaude(answer_pages("english")))
+    with open(sample("english"), "rb") as fh:
+        r = client.post("/api/projects", files=[("files", ("english.pdf", fh, "application/pdf"))], headers=EXTENSION)
+    assert r.status_code == 200, r.text
+    pid = r.json()["id"]
+    assert client.post(f"/api/projects/{pid}/style", json={"preset": "classic-sefer"}, headers=EXTENSION).status_code == 200
+    assert client.post(f"/api/projects/{pid}/style", json={"preset": "nope"}, headers=EXTENSION).status_code == 404
+
+    # The free extension can never spend the API key, even when one is set.
+    for reader in ("claude", "hybrid"):
+        r = client.post(f"/api/projects/{pid}/convert", json={"reader": reader}, headers=EXTENSION)
+        assert r.status_code == 403 and "local reader" in r.json()["detail"]
+    assert client.get(f"/api/projects/{pid}/progress").json()["status"] == "new"
+
+    r = client.post(f"/api/projects/{pid}/convert", json={"reader": "local"}, headers=EXTENSION)
+    assert r.status_code == 200, r.text
+    deadline = time.time() + 120
+    while (prog := client.get(f"/api/projects/{pid}/progress", headers=EXTENSION).json())["status"] == "converting":
+        assert time.time() < deadline
+        time.sleep(0.2)
+    assert prog == {"id": pid, "name": "english", "status": "done", "total": 2, "done": 2, "failed": 0, "error": ""}
+    assert client.get(f"/api/projects/{pid}").json()["document"]["pages"][0]["reader"] in ("local", "textlayer")
+
+    r = client.get(f"/api/projects/{pid}/export/docx", headers=EXTENSION)
+    assert r.status_code == 200
+    text = "\n".join(p.text for p in Docx(io.BytesIO(r.content)).paragraphs)
+    assert "Printing" in text
+    assert client.get(f"/api/projects/{pid}").json()["style"] != make_style_default()
+
+
+def test_browser_extension_cannot_do_anything_else(sample, monkeypatch):
+    client = make_client()
+    pid = upload(client, sample("english"))
+    for method, url, body in [
+        ("post", "/api/key", {"key": SECRET}),
+        ("delete", "/api/key", None),
+        ("post", "/api/presets", {"name": "x", "style": {}}),
+        ("delete", f"/api/projects/{pid}", None),
+        ("post", f"/api/projects/{pid}/preview", {}),
+        ("post", f"/api/projects/{pid}/pages/0/reread", {"reader": "local"}),
+    ]:
+        kw = {"headers": EXTENSION}
+        if body is not None:
+            kw["json"] = body
+        r = getattr(client, method)(url, **kw)
+        assert r.status_code == 403, (url, r.status_code)
+        assert r.json()["detail"] == "The browser extension cannot do that."
+    assert not config.has_api_key()
+
+    # Some other extension is treated like any other website...
+    other = {"Origin": "chrome-extension://abcdefghijklmnopabcdefghijklmnop"}
+    assert client.post(f"/api/projects/{pid}/convert", json={"reader": "local"}, headers=other).status_code == 403
+    # ...unless the person allows it by its ID.
+    monkeypatch.setenv("SCANTODOC_EXTENSION_IDS", "abcdefghijklmnopabcdefghijklmnop")
+    assert client.post(f"/api/projects/{pid}/style", json={"preset": "academic"}, headers=other).status_code == 200
